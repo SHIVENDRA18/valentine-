@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>💖 For Vishakha 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: "Poppins", system-ui;
+      background:
+        linear-gradient(rgba(255,120,150,0.6), rgba(255,120,150,0.6)),
+        url("bg.jpg") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.92);
+      width: 90%;
+      max-width: 360px;
+      padding: 26px 22px 36px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      margin-bottom: 26px;
+      font-size: 15px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 140px;
+      width: 100%;
+    }
+
+    button {
+      padding: 12px 26px;
+      font-size: 16px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #no {
+      background: #e0e0e0;
+      position: absolute;
+      left: 50%;
+      top: 70px;
+      transform: translateX(-50%);
+      transition: left 0.25s ease, top 0.25s ease;
+    }
+
+    /* YES SCREEN */
+    .yes-screen {
+      height: 100vh;
+      width: 100%;
+      background:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url("bg.jpg") center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      animation: fadeIn 1s ease;
+    }
+
+    .yes-screen img {
+      width: 260px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+    }
+
+    .red {
+      color: #ff2d55;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>❤️ Vishakha ❤️</h1>
+    <p>Will you be my Valentine? 🌹</p>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">Yes 💖</button>
+      <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">No 🙄</button>
+    </div>
+  </div>
+
+  <script>
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      const box = document.querySelector(".buttons");
+
+      const maxX = box.clientWidth - noBtn.clientWidth;
+      const maxY = box.clientHeight - noBtn.clientHeight;
+
+      noBtn.style.left = Math.random() * maxX + "px";
+      noBtn.style.top = Math.random() * maxY + "px";
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div class="yes-screen">
+          <img src="yes.jpg" alt="Us together">
+          <h1>
+            You are my <span class="red">constant Valentine</span> 💖💞😊
+          </h1>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
